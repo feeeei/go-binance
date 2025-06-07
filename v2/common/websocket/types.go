@@ -105,7 +105,7 @@ func CreateRequest(reqData RequestData, method WsApiMethodType, params map[strin
 	if err != nil {
 		return nil, err
 	}
-	signature, err := sf(reqData.secretKey, encodeParams(params))
+	signature, err := sf(reqData.apiKey, reqData.secretKey, encodeParams(params))
 	if err != nil {
 		return nil, err
 	}
